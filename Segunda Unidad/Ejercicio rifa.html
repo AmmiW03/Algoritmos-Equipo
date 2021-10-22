@@ -1,0 +1,32 @@
+<script>
+    var elNumero = prompt("Inserte el numero de participantes: ")
+    var intervalo1 = UsuarioAleatorio(1,elNumero)
+    var intervalo2 = UsuarioAleatorio(1,elNumero)
+    var intervalo3 = UsuarioAleatorio(1,elNumero)
+    
+    for(i = 0; i < elNumero; i++){
+        conjunto();
+    }
+    
+    console.log("Primera ronda. \n Sigue intentando numero: " + intervalo1 + ":(");
+    
+    if(intervalo2 != (intervalo1 && intervalo3)){
+        console.log("Segunda ronda. \n Sigue intentando numero: " + intervalo2 + ":(");
+    }
+    
+    if(intervalo3 != (intervalo2 && intervalo1)){
+        console.log("El numero ganador es: " + intervalo3);
+    }
+    
+    function conjunto(){
+    
+        let Nombre = ["Nombre: " + prompt("Inserte su nombre : ")]
+        let Direccion = [" Direccion: " + prompt("Inserte la direccion: ")]  
+        let junto = Nombre.concat(Direccion);
+        console.log("Numero de participante: " + [i + 1] + " "+ junto);
+    }    
+    
+    function UsuarioAleatorio(min,max){
+        return Math.floor(Math.random()* (max - min +1 )) + min;
+    }
+    </script>

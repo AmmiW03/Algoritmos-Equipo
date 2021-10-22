@@ -1,0 +1,13 @@
+<script>
+    var decir = prompt("ingrese un numero");
+    function Genear(decir){
+    let candom ="";
+    let letra ="abcdefghijklmnñopqrstuvxyz";
+    for(let i= 0; i<decir; i++){
+      candom += letra.charAt(Math.floor(Math.random() * letra.length -1));
+      console.log(candom);  
+    }
+    
+    }
+    Genear(decir);
+</script>

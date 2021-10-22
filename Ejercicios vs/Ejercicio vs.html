@@ -1,0 +1,41 @@
+<script>
+
+var menu = parseInt(prompt("Ingrese el numero de opcion del menu que desea visualizar \n1: Bebidas \n2: Comidas \n3: Postre \n4. Ordene"));
+    
+     
+    switch(menu){
+        case 1:
+        var Bebidas = {
+            Gaseosa :  ["Coca Cola", "Pepsi", "Red Cola"],
+            Agua :  ["Limon", "Jamaica", "Horchata"],
+        }
+        console.log(Bebidas);
+        break;
+        case 2:
+        var Comida = {
+            "Rapida" : ["Tacos", "Hambugruesa", "Pizza"],
+            "Corrida" : ["Enchiladas","Bistec","Mole verde"]
+        }
+        console.log(Comida);
+        break;  
+        case 3:
+        var Postres = {
+            "Pasteles" : ["Crepa", "Brownie", "Helado"],
+            "Helado" : ["Limon", "Chocolate", "Vainilla"]
+        }
+        console.log(Postres);
+        break;
+        case 4:
+            console.log("Orden: ");
+            var bebida = prompt("Ingrese la bebida que gusta ordenar:");
+            var comida = prompt("Ingrese la comida que gusta ordenar:");
+            var postre = prompt("Ingrese el postre que gusta ordenar:");
+            console.log("Su orden consta de una bebida "+ bebida + ", comida "+ comida + " y postre " + postre);
+        break;
+            default:{
+             alert("Caracter no valido");
+            } 
+            }
+
+ 
+</script>
