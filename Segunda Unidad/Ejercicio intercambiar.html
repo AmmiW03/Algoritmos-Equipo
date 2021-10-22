@@ -1,24 +1,93 @@
 <script>
 
-var num = prompt("Ingrese numero o palabra a convertir:");
-var numer = numeroConvertir();
-    console.log(numer);
-
-function numeroConvertir(){
-    let nume = ["0",1,2,3,4,5,6,7,8,9];
-    let letra = ["Cero","Uno","Dos","Tres","Cuatro","Cinco","Seis","Siete","Ocho","Nueve"];     
-    let nuevoNumero = "";
-        for(i = 0; i < letra.length; i ++){ //este es el bueno 
-            for(z = 0; z < nume.length; z ++){   
-                if(num[i] == nume[z]){     //este es el que esta bien
-                    nuevoNumero += letra[z];
-        }
-        else if (num == letra[i]){
-            nuevoNumero += nume[i];
-        }
-    }   
-}
-return nuevoNumero;
-} 
-
-</script>
+    var numero = prompt("Ingrese numero o palabra a convertir:");
+    // -- convertir numero a letra
+    let letras = convertirNumeroALetra(numero);
+    console.log(letras);
+  
+    //  Convertir Letras a numeros
+    let numero2 = convertirLetraAnumero(numero);
+    let separarNumeros = numero.split(" ");
+    for (let i = 0; i < separarNumeros.length; i++) {
+      let numero = convertirLetraAnumero(separarNumeros[i]);
+      console.log(numero);
+    }
+  
+  
+  function convertirNumeroALetra(numero) {
+      var cadena = "";
+      for (var i = 0; i < numero.length; i++) {
+      switch (numero[i]) {
+        case "0":
+          cadena += "cero ";
+        break;
+        case "1":
+          cadena += "uno ";
+        break;
+        case "2":
+          cadena += "dos ";
+        break;
+        case "3":
+          cadena += "tres ";
+        break;
+        case "4":
+          cadena += "cuatro ";
+        break;
+        case "5":
+          cadena += "cinco ";
+        break;
+        case "6":
+          cadena += "seis ";
+        break;
+        case "7":
+          cadena += "siete ";
+        break;
+        case "8":
+          cadena += "ocho ";
+        break;
+        case "9":
+          cadena += "nueve ";
+        break;
+      }
+    }
+    return cadena;
+  }
+  
+  
+  function convertirLetraAnumero(numero) {
+      var cadena = "";
+      switch (numero) {
+        case "cero":
+          cadena += "0 ";
+        break;
+        case "uno":
+          cadena += "1 ";
+        break;
+        case "dos":
+          cadena += "2 ";
+        break;
+        case "tres":
+          cadena += "3 ";
+        break;
+        case "cuatro":
+          cadena += "4 ";
+        break;
+        case "cinco":
+          cadena += "5 ";
+        break;
+        case "seis":
+          cadena += "6 ";
+        break;
+        case "siete":
+          cadena += "7 ";
+        break;
+        case "ocho":
+          cadena += "8 ";
+        break;
+        case "nueve":
+          cadena += "9 ";
+        break;
+      }
+    return cadena;
+  }
+  </script>
