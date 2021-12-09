@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <script>
     var transporte = ["carro", "autobus", "burro", "carroza", "taxi", "caminando", "avion","limousina", "metro", "uber"];
     var dondeTeCasas = ["Iglesia", "Playa", "Bosque", "Basurero", "Canal de agua sucia (fuchi)","casa", "cabaña", "En el six flgs", "casa abandonada", "en la unversidad"]  
@@ -44,4 +45,52 @@
 function numeroAleatorio(min,max){
     return Math.floor(Math.random()* (max - min +1 )) + min;
     } 
+=======
+<script>
+    var transporte = ["carro", "autobus", "burro", "carroza", "taxi", "caminando", "avion","limousina", "metro", "uber"];
+    var dondeTeCasas = ["Iglesia", "Playa", "Bosque", "Basurero", "Canal de agua sucia (fuchi)","casa", "cabaña", "En el six flgs", "casa abandonada", "en la unversidad"]  
+    var cqtcH  = ["Pedro", "Alexandher", "Jector","Rodrigo","Alejandro","Alexis","Pedrox2", "Juan", "Manuel","Emmanuel"];
+    var cqtcM  = ["Jimena", "Ammi", "Carmen","Ana","Angelica","Luna","Maria", "Alejandra", "Guadalupe", "Pim pam"];
+    var qtvapH = ["Traje","Mezclilla","Nada jiji","Bolsas","Short perron", "pants", "una cobija", "las cortinas"];
+    var qtvapM = ["Vestido","Mezclilla","Nudista", "Traje", "Uniforme", "Chola", "Mecanica", "shorts", "Bikini", "Bolsas"];
+    var nombre = prompt("Ingresa tu nombre:");  
+    var genero = prompt("Ingresa tu genero:");
+   
+
+    var juego = juegoTonto();
+    console.log(juego);
+    console.log("TERMINAMOS LA SECUENCIA DEMARCADA DE HOY SIUUUUUU");
+
+   
+    function juegoTonto(juegoTonto){
+        if(genero == "Hombre"){    
+            var personaH = {
+                "Nombre: " : nombre,
+                "Sexo: " : genero,
+                "Con quien te casas: " : cqtcM [numeroAleatorio(0,cqtcM.length-1)],
+                "Donde te casas: " : dondeTeCasas [numeroAleatorio(0,dondeTeCasas.length-1)],
+                "Ropa: " : qtvapH [numeroAleatorio(0,qtvapH.length-1)],
+                "A que edad te casas: " : numeroAleatorio(17,55),
+            }
+            console.log(personaH);
+        }
+        else if(genero == "Mujer"){
+            var personaM = {
+                "Nombre": nombre,
+                "Sexo": genero,
+                "Con quien te casas: ": cqtcH[numeroAleatorio(0,cqtcH.length-1)],
+                "Donde te casas: " : dondeTeCasas [numeroAleatorio(0,dondeTeCasas.length-1)],
+                "Ropa: " : qtvapM[numeroAleatorio(0,qtvapM.length-1)],
+                "A que edad te casas: " : numeroAleatorio(17,55),
+            }
+            console.log(personaM);
+        }
+        return personaH,personaM;
+    }   
+    
+
+function numeroAleatorio(min,max){
+    return Math.floor(Math.random()* (max - min +1 )) + min;
+    } 
+>>>>>>> af82ede464d2c28521fc7609f4bfef37cb659523
 </script>
