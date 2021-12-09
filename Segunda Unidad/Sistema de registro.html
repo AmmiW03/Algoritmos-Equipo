@@ -1,0 +1,146 @@
+<script>
+    var datoAlumn = Registro(prompt("Ingrese la cantidad de estudiantes que desea registrar: "));
+    menuOpciones(datoAlumn);
+    
+    
+    function Registro(numeroalumno) {
+    
+        let datosAlumnos = [];
+    
+        for (let i = 0; i < numeroalumno; i++) {
+            let Hombre = "Hombre";
+            let Mujer = "Mujer";
+            
+            let genero = prompt("Ingrese el genero del alumno Hombre/Mujer: ");
+            while (genero != Hombre && genero != Mujer) {
+                genero = prompt("Expresion no valida por favor ingrese 'Hombre' o 'Mujer': ");
+            }
+            
+            let personas = {
+                Nombre: prompt("Introduce el nombre del estudiante: "),
+                Matricula: prompt("Introduce el numero de matricula: "),
+                Grupo: prompt("Introduce el grupo al que pertenece: "),
+                "Genero": genero,
+                Calificacion: parseFloat(prompt("Ingrese la calificacion del alumno: "))
+            }
+            
+            datosAlumnos.push(personas);   
+        }  
+        return datosAlumnos;
+    }
+    
+    function numEstudiantes(datoAlumn) {
+        let cont = 0;
+        for (let i = 0; i < datoAlumn.length; i++) {
+            cont += 1;
+        }
+        return cont;
+    }
+    
+    function numEstudiantesPorgenero(datoAlumn) {
+        let cont1 = 0;
+        let cont2 = 0;
+        for (let i = 0; i < datoAlumn.length; i++) {
+            if (datoAlumn[i].Genero == "Hombre"){
+                cont1 += 1;
+            } else {
+                cont2 += 1;
+            }
+    
+        }
+    
+        let resultado = "Cantidad de estudiantes hombres: " + cont1 + " Cantidad de estudiantes mujeres: " + cont2;
+        return resultado;
+    }
+    
+    function estudianteEspecifico(datoAlumn) {
+        let Codigo = prompt("Ingrese el nombre o matricula del estudiante");
+    
+        for (let i = 0; i < datoAlumn.length; i++) {
+            if (datoAlumn[i].Nombre == Codigo || datoAlumn[i].Calificacion == Codigo) {
+                return datoAlumn[i];
+            }
+        }
+        
+    }
+    
+    function informacionporGrupo(datoAlumn) {
+        let grupo = prompt("Ingrese el grupo que requisita: ");
+        let Alumnos = [];
+        for (let i = 0; i < datoAlumn.length; i++) {
+            if ((datoAlumn[i].Grupo) == "Alumnos","genero", "grupo", "calificaciones", "matricula") {
+                Alumnos.push(datoAlumn[i]);
+            }
+        }
+        let Opcionuno = numEstudiantes(Alumnos);
+        let Opciondos = numEstudiantesPorgenero(Alumnos);
+        let Opciontres = promedio(Alumnos);
+        let Opcioncuatro = estudianteEspecifico(Alumnos);
+    
+        let resultado = {
+            "Cantidad de estudiantes": Opcionuno,
+            "Cantidad de estudiantes por genero": Opciondos,
+            "Promedio de calificaciones": Opciontres,
+            "Estudiante especifico": Opcioncuatro,
+        }
+        return resultado;
+    }  
+    
+    function conjuntoAlumnos(datoAlumn) {
+       let Alumnos = [];
+       let Alumno = "";
+       let numAlumno = parseInt(prompt("Ingrese la cantidad de estudiantes que desea ver"));
+       for (let i = 0; i < numAlumno; i++) {
+           Alumno = estudianteEspecifico(datoAlumn);
+           Alumnos.push(Alumno);
+           
+       }
+       return Alumnos; 
+    }
+    
+    function promedio(datoAlumn) {
+        let promedio = 0;
+        for (let i = 0; i < datoAlumn.length; i++) {
+            promedio += datoAlumn[i].Calificacion;
+        }
+        promedio = promedio / datoAlumn.length;
+        return promedio;
+    }
+        
+    function menuOpciones(datoAlumn) {
+    
+        let mostrar = true;
+    
+        while (mostrar == true) {
+            let Opciones = parseInt(prompt("Ingrese la opcion que desea ver: \n1. Cantidad de estudiantes registrados \n2. Cantidad de estudiantes por genero \n3. Promedio total \n4. Estudiante especifico \n5. Estudiantes especificos \n6. Estudiantes por grupos \n7. Salir"));
+            switch (Opciones) {
+                case 1:
+                    console.log("Cantidad de estudiantes registrados: " + numEstudiantes(datoAlumn));
+                    break;
+                case 2:
+                    console.log(numEstudiantesPorgenero(datoAlumn));
+                    break;
+                case 3:
+                    console.log("Promedio total: " + promedio(datoAlumn));
+                    break;
+                case 4:
+                    console.log(estudianteEspecifico(datoAlumn));
+                    break;
+                case 5:
+                    console.log(conjuntoAlumnos(datoAlumn));
+                    break;
+                case 6:
+                    console.log(informacionporGrupo(datoAlumn));
+                    break;
+                case 7:
+                    alert("Saliendo del programa")
+                    mostrar = false;
+                    break;
+                default:
+                    alert("Opcion no valida");
+                    break;
+            }
+        }
+    }
+    
+    </script>
